@@ -28,7 +28,7 @@ app.get("/api/1451001600000", (req, res)=>{
   res.json({ unix: 1451001600000, utc: "Fri, 25 Dec 2015 00:00:00 GMT" });
 })
 
-app.get("/api/timestamp/:date", (req, res) => {
+app.get("/api/:date", (req, res) => {
   const dateStr = req.params.date;
 
   // If non-digit characters are passed, check if dateStr is a valid ISO-8601 date
