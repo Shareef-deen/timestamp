@@ -28,11 +28,6 @@ app.get("/", function (req, res) {
   const date = new Date();
   res.json({unix: date.getTime(), utc: date.toUTCString()});
         })*/
-app.get("/api",(res, req)=>{
-  const date = new Date();
-  const ud = Math.floor(date.getTime()/1000);
-  res.json({unix: ud, utc: date.toUTCString()})
-})
 
 app.get("/api/1451001600000", (req, res)=>{
   res.json({ unix: 1451001600000, utc: "Fri, 25 Dec 2015 00:00:00 GMT" });
@@ -49,7 +44,7 @@ app.get("/api/:date", (req, res) => {
     } else {
       res.json({ unix: ISODate.valueOf(), utc: ISODate.toUTCString() });
     }
-  } else {
+  } else if (!isNaN(dateStr)){
     // If only digits are passed, check if dateStr is a valid unix timestamp
     const dateInt = parseInt(dateStr);
     const UnixDate = new Date(dateInt);
@@ -59,6 +54,11 @@ app.get("/api/:date", (req, res) => {
       res.json({ unix: dateInt, utc: UnixDate.toUTCString() });
     }
   }
+  else {
+  const date = new Date();
+  const ud = Math.floor(date.getTime()/1000);
+  res.json({unix: ud, utc: date.toUTCString()})
+}
 });
 
 
