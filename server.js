@@ -30,8 +30,8 @@ app.get("/", function (req, res) {
         })*/
 app.get("/api",(res, req)=>{
   const date = new Date();
-  //const ud = Math.floor(date.getTime()/1000);
-  res.json({unix: date.getTime(), utc: date.toUTCString()})
+  const ud = Math.floor(date.getTime()/1000);
+  res.json({unix: ud, utc: date.toUTCString()})
 })
 
 app.get("/api/1451001600000", (req, res)=>{
