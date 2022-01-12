@@ -28,8 +28,9 @@ app.get("/", function (req, res) {
   const date = new Date();
   res.json({unix: date.getTime(), utc: date.toUTCString()});
         })*/
-app.get("/api/",(res, req)=>{
+app.get("/api",(res, req)=>{
   const date = new Date();
+  //const ud = Math.floor(date.getTime()/1000);
   res.json({unix: date.getTime(), utc: date.toUTCString()})
 })
 
