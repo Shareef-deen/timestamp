@@ -32,7 +32,7 @@ app.get("/api/timestamp/:date", (req, res) => {
   const dateStr = req.params.date;
 
   // If non-digit characters are passed, check if dateStr is a valid ISO-8601 date
-  if (/\D/.test(dateStr)) {
+  if (isNaN(dateStr)) {
     const ISODate = new Date(dateStr);
     if (ISODate.toString() === "Invalid Date") {
       res.json({ error: "Invalid Date" });
