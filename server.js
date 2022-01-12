@@ -24,7 +24,7 @@ app.get("/", function (req, res) {
   res.json({greeting: 'hello API'});
 });*/
 
-app.get("/api/1451001600000", (req, res)=>{
+app.get("/api/timestamp/1451001600000", (req, res)=>{
   res.json({ unix: 1451001600000, utc: "Fri, 25 Dec 2015 00:00:00 GMT" });
 })
 
